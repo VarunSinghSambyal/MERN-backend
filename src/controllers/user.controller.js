@@ -57,5 +57,5 @@ export const registerUser = asyncHandler(async (req, res) => {
     throw new ApiError(500, "Failed to create user");
   }
   //   Step 7: Return a success response with the created user's information (excluding sensitive data like password)
-  return new ApiResponse(201, "User registered successfully", createdUser).send(res);
+  return res.status(201).json(new ApiResponse(200, "User registered successfully", createdUser));
 });
